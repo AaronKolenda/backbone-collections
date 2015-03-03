@@ -122,6 +122,24 @@ $("#edit-button").on("click", function(){
   }
 })
 
+$("#search").on("click", function(){
+  	var flavorID = $("#searchInput").val();
+  	console.log(flavorID);
+ 	var flavor = shop.get(flavorID);
+ 	console.log(flavor);
+ 	$("#cupcakeList").html("");
+
+ 	var htmlString = templates.cupcake(flavor.toJSON());
+    	var $itemHtml = $(htmlString);
+
+    	$("#cupcakeList").append($itemHtml);
+});
+
+$("#all").on("click", function(){
+	updateUI();
+});
+
+
 
 
 $(document).on("ready", function(){

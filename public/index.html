@@ -16,11 +16,12 @@
           <h1>Keep Track of Your Cupcakes. Get Cupcake Experience. Get Rewarded, With Cupcakes.</h1>
         </div>
 
-        <div class="allCupcakes" id="allCupcakes">
+        <div class="allCupcakes">
+
           <div class="row centerRow under600">
             <div class="cell columns3 new3">
               <h1>Search for a flavor</h1>
-              <input type="text" value="Flavor" id="searchInput/">
+              <input type="text" value="Flavor" id="searchInput"/>
               <button id="search">Search</button>
             </div>
 
@@ -65,7 +66,8 @@
     <div class="cupcakeList" id="cupcakeList">
 
     <script type="x-handlebars-template" id="cupcake-template">
-      <div class="cupcake columns2" data-id="{{id}}">
+    <div class=row>
+      <div class="cupcake" data-id="{{id}}">
 
         <div class="infoWrap">Icing: {{icing}}</div>
         <div class="infoWrap">Cake: {{cake}}</div>
@@ -75,10 +77,11 @@
         <div class="infoWrap">Disgusting: {{disgusting}}</div>
         {{/if}}
 
-        <button data-id="{{id}}" class="delete-button">x</button>
-        <button data-id="{{id}}" class="edit-button">E</button>
+        <button data-id="{{id}}" class="delete-button">Delete</button>
+        <button data-id="{{id}}" class="edit-button">Edit</button>
 
       </div>
+    </div>
     </script>
 
   </div>
