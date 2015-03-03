@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>Cupcake Flavor Management</title>
-
+    <link rel="stylesheet/less" type="text/css" href="style.less" />
+    <script src="libs/less.min.js" type="text/javascript"></script>
     <script src="libs/underscore.js"></script>
     <script src="libs/jquery.js"></script>
     <script src="libs/handlebars.js"></script>
@@ -10,8 +11,79 @@
 
   </head>
   <body>
-    
+  <div class="container">
+        <div class="row centerRow">
+          <h1>Keep Track of Your Cupcakes. Get Cupcake Experience. Get Rewarded, With Cupcakes.</h1>
+        </div>
+
+        <div class="allCupcakes" id="allCupcakes">
+          <div class="row centerRow under600">
+            <div class="cell columns3 new3">
+              <h1>Search for a flavor</h1>
+              <input type="text" value="Flavor" id="searchInput/">
+              <button id="search">Search</button>
+            </div>
+
+            <div class="cell columns3 new3">
+              <button id="all">All Cupcakes</button>
+            </div>
+
+            <div class="cell columns3 new3">
+              <h1>Create a New Cupcake</h1>
+              <input type="text" value="Icing" id="icingInput"/>
+              <input type="text" value="Cake" id="cakeInput"/>
+              <input type="text" value="Sprinkles" id="sprinklesInput"/>
+              <button id="create">Create</button>
+            </div>
+
+          </div>
+        </div>
+     
+
+      <div class="specificCupcake" id="specificCupcake">
+          <div class="row centerRow">
+            Icing: <input id="editIcing"/>
+          </div>
+          <div class="row centerRow">
+           Cake: <input id="editCake"/>
+          </div>
+          <div class="row">
+            Sprinkles: <input id="editSprinkles"/>
+          </div>
+          <div class="row centerRow">
+            <button id="edit-button">Save</button>
+            <button id="cancel-button">Cancel</button>
+          </div>
+      </div>
+
+  </div>
+
     <script src="cupcakes.js"></script>
+
+    <div class="container">
+
+    <div class="cupcakeList" id="cupcakeList">
+
+    <script type="x-handlebars-template" id="cupcake-template">
+      <div class="cupcake columns2" data-id="{{id}}">
+
+        <div class="infoWrap">Icing: {{icing}}</div>
+        <div class="infoWrap">Cake: {{cake}}</div>
+        <div class="infoWrap">Sprinkles: {{sprinkles}}</div>
+
+        {{#if disgusting}}
+        <div class="infoWrap">Disgusting: {{disgusting}}</div>
+        {{/if}}
+
+        <button data-id="{{id}}" class="delete-button">x</button>
+        <button data-id="{{id}}" class="edit-button">E</button>
+
+      </div>
+    </script>
+
+  </div>
+
+</div>
 
   </body>
 </html>
