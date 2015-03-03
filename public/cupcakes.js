@@ -9,9 +9,10 @@ var Cupcake = Backbone.Model.extend({
 	      return "No cake";
 	    }
 
-	    if (attributes.sprinkles != "true" && attributes.sprinkles != "false") {
+	    if (attributes.sprinkles != true && attributes.sprinkles != false) {
 	      return "Sprinkles isn't true or false";
 	    }
+
 
  	}
 
@@ -71,7 +72,15 @@ var updateUI = function() {
 $("#create").on("click", function(){
   var icing = $("#icingInput").val();
   var cake = $("#cakeInput").val();
-  var sprinkles = $("#sprinklesInput").val();
+  var sprinkles;
+  var sprinklesString = $("#sprinklesInput").val();
+  if (sprinklesString === "true") {
+	sprinkles = true;
+  }
+  if (sprinklesString === "false") {
+	sprinkles = false;
+  }
+
 
   var cupcake = new Cupcake({
     icing: icing,
@@ -140,11 +149,20 @@ $("#all").on("click", function(){
 });
 
 
-
+Handlebars.registerHelper("cupcakeDescription", function(cupcake) {
+  	var sprinklesString;
+	  	if (this.sprinkles === true) {
+		  	sprinklesString = " and sprinkles";
+		  	return this.cake + " cake with " + this.icing + " icing" + sprinklesString;
+	  	}
+  	return this.cake + " cake with " + this.icing + " icing";
+});
 
 $(document).on("ready", function(){
 
   templates.cupcake = Handlebars.compile($("#cupcake-template").text());
+
+
 
   shop.fetch({
     success: function() {

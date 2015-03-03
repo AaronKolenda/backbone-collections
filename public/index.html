@@ -68,11 +68,8 @@
     <script type="x-handlebars-template" id="cupcake-template">
     <div class=row>
       <div class="cupcake" data-id="{{id}}">
-
-        <div class="infoWrap">Icing: {{icing}}</div>
-        <div class="infoWrap">Cake: {{cake}}</div>
-        <div class="infoWrap">Sprinkles: {{sprinkles}}</div>
-
+        <div class="infoWrap">{{cupcakeDescription}}</div>
+  
         {{#if disgusting}}
         <div class="infoWrap">Disgusting: {{disgusting}}</div>
         {{/if}}
